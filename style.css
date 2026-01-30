@@ -1,0 +1,262 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 30px;
+}
+
+.index body, html {
+background-color:white;
+font-family: Verdana, Geneva, sans-serif;
+}
+
+.menu a {
+  font-family:Verdana, Geneva, sans-serif;
+  margin-left: 30px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.title-img {
+  position: fixed;  
+  top: 25%;
+  left: 50%;
+   width: 400px;  
+   height:200px;
+  background-image: url('anaaa.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+ 
+
+.plutajuca-glava {
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background-image: url('glava1.png');
+   background-size: contain;
+  background-repeat: no-repeat;
+  animation: floatAround 15s linear infinite;
+  pointer-events: auto;
+  transition: background-image 0.1s ease;
+}
+
+.plutajuca-glava:hover {
+  background-image: url('glava2.png');
+}
+
+@keyframes floatAround {
+  0% {
+    transform: translate(0vw, 0vh);
+  }
+
+  25% {
+    transform: translate(40vw, -10vh);
+  }
+
+  50% {
+    transform: translate(60vw, 30vh);
+  }
+
+  75% {
+    transform: translate(30vw, -20vh);
+  }
+
+  100% {
+    transform: translate(0vw, 0vh);
+  }
+}
+
+.about-layer {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: none;
+  z-index: 20;
+
+  padding: 80px;
+}
+
+.about-layer:target {
+  display: block;
+}
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 32px;
+  text-decoration: none;
+  color: black;
+}
+.links {
+  list-style: none;
+  padding: 0;
+  margin-top: 60px;
+}
+
+.links li {
+  margin-bottom: 20px;
+}
+
+.links a {
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: none;
+    z-index: 20;
+}
+
+.overlay:target {
+    display: block;
+}
+
+.Projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+	height: 100%;
+}
+
+.Projects-container img {
+    width: 100px;
+    cursor: pointer;
+  animation: breathe 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+    from {
+        transform: scale(0.8) rotate(3deg);
+    }
+    to {
+        transform: scale(1.05) rotate(-2deg);
+    }
+}
+
+
+.close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 40px;
+    text-decoration: none;
+    color: black;
+}
+
+ .projekatskica body, html {
+	 margin: 0;
+	 padding: 0;
+	 height: 100%;
+	 width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.skica {
+    width: 300px; 
+    height: auto;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    object-fit:contain;
+}
+
+body.experiment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFFFFF;
+    margin: 0;
+}
+
+.face {
+    display: flex;
+    gap: 60px;
+}
+
+.eye {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    border: 3px solid black;
+    overflow: hidden;
+}
+
+.eyelid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 90%, 100% {
+        transform: translateY(-100%);
+    }
+    50%, 55% {
+        transform: translateY(0);     
+    }
+}
+
+.eye:hover .eyelid {
+    opacity: 0;
+	
+}
+
+body.experiment2 {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hand-drawn-box {
+    width: 50vmin;
+    height: 50vmin;
+    border: 5px solid black;
+    background-color: transparent;
+	transform: rotate(-1deg) skewX(0deg) skewY(0deg);
+    transition: all 0.3s ease;
+}
+	
+.hand-drawn-box:hover {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;  
+    transform: rotate(0deg) skewX(0deg) skewY(0deg); 
+}
