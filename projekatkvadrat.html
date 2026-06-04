@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>kvadrat</title>
+<title>kvadrat - zvezda</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="experiment2">
@@ -12,70 +12,130 @@
   </div>
 </div>
 
-<div class="hand-drawn-box"></div>
+<div class="text-overlay">
+  <svg viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="smooth-ink-wobble">
+        <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3.5" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+
+    <g filter="url(#smooth-ink-wobble)" stroke="black" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.85">
+      <path d="M 90,295 L 130,65 L 340,310 L 295,95" stroke-width="4" />
+      <path d="M 430,110 L 460,290 M 440,115 L 590,140 M 450,200 L 530,190 M 460,290 L 610,270" stroke-width="3.5" />
+      <path d="M 680,85 L 840,315 L 970,110" stroke-width="4" />
+      <path d="M 1030,120 L 1050,275 M 1035,125 L 1190,110 M 1040,195 L 1120,205 M 1050,275 L 1170,290" stroke-width="3.5" />
+      <path d="M 1260,310 L 1290,75 C 1490,90 1460,220 1300,210 L 1460,315" stroke-width="4" />
+
+      <path d="M 280,430 L 330,630 M 290,440 L 460,420 M 310,530 L 410,545 M 330,630 L 450,610" stroke-width="3.5" />
+      <path d="M 530,460 L 710,645 L 810,410" stroke-width="4" />
+      <path d="M 900,420 L 890,610 M 895,430 L 1050,450 M 892,515 L 990,510 M 890,610 L 1030,600" stroke-width="3.5" />
+      <path d="M 1140,640 L 1195,430 C 1350,380 1370,530 1210,540 L 1360,630" stroke-width="4" />
+
+      <path d="M 290,740 C 90,790 120,990 290,950" stroke-width="4.5" />
+      <path d="M 360,985 L 415,730 L 530,965 M 375,890 L 505,865" stroke-width="3.5" />
+      <path d="M 560,780 L 770,740 M 670,760 L 640,990" stroke-width="4" />
+      <path d="M 980,780 C 790,750 760,980 950,965" stroke-width="4" />
+      <path d="M 1030,765 L 1060,980 M 1190,730 L 1160,960 M 1050,875 L 1170,850" stroke-width="4" />
+      <path d="M 1270,990 L 1310,720 L 1440,930 L 1530,750 L 1510,975" stroke-width="4.5" />
+      <path d="M 1610,775 L 1630,950 M 1615,780 L 1780,750 M 1620,860 L 1710,875 M 1630,950 L 1790,935" stroke-width="3.5" />
+    </g>
+  </svg>
+</div>
+
+<div class="hand-drawn-star pulsing">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#smooth-ink-wobble)">
+      <path d="M 52,15 L 63,38 L 88,35 L 72,56 L 82,82 L 48,70 L 17,85 L 28,57 L 8,42 L 36,37 Z" 
+            stroke="rgb(255, 238, 140)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M 50,17 L 64,36 L 86,36 L 74,54 L 80,83 L 49,68 L 19,83 L 27,58 L 10,40 L 37,38 Z" 
+            stroke="rgb(255, 238, 140)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.6" />
+    </g>
+  </svg>
+</div>
 
 <div class="face">>:(</div>
 
 <script>
-    const box = document.querySelector('.hand-drawn-box');
+    const star = document.querySelector('.hand-drawn-star');
     const face = document.querySelector('.face');
+    const textOverlay = document.querySelector('.text-overlay');
     let isResetting = false;
+    let escapeTimeout = null;
 
-    // 1. BEZI OD MISA (Square runs away)
-    box.addEventListener('mouseover', () => {
+    function teleportStar() {
         if (isResetting) return;
 
-        // Calculate random coordinates ensuring it stays fully on screen
-        const randomX = Math.floor(Math.random() * (window.innerWidth - box.offsetWidth));
-        const randomY = Math.floor(Math.random() * (window.innerHeight - box.offsetHeight));
+        if (star.classList.contains('pulsing')) {
+            star.classList.remove('pulsing');
+        }
 
-        box.style.position = 'absolute';
-        box.style.left = `${randomX}px`;
-        box.style.top = `${randomY}px`;
+        const vmin = Math.min(window.innerWidth, window.innerHeight) / 100;
+        const randomSizeVmin = Math.floor(Math.random() * (50 - 20 + 1)) + 20;
+        const starSizePx = randomSizeVmin * vmin;
+
+        star.style.width = `${randomSizeVmin}vmin`;
+        star.style.height = `${randomSizeVmin}vmin`;
+
+        const randomX = Math.floor(Math.random() * (window.innerWidth - starSizePx));
+        const randomY = Math.floor(Math.random() * (window.innerHeight - starSizePx));
+
+        star.style.position = 'absolute';
+        star.style.left = `${randomX}px`;
+        star.style.top = `${randomY}px`;
+        star.style.transform = `rotate(${Math.random() * 360}deg)`;
+    }
+
+    // 1. RUN AWAY ENGINE (Reaction window near-instantaneous at 15ms)
+    star.addEventListener('mouseover', () => {
+        if (isResetting) return;
         
-        // Random wild rotations while playing
-        box.style.transform = `rotate(${Math.random() * 360}deg)`;
+        clearTimeout(escapeTimeout);
+        escapeTimeout = setTimeout(teleportStar, 15); 
     });
 
-    // 2. KLIK (Square caught)
-    box.addEventListener('click', () => {
+    // 2. THE CATCH ENGINE 
+    star.addEventListener('pointerdown', (e) => {
         if (isResetting) return;
         isResetting = true;
 
-        // A. Square completely disappears instantly
-        box.style.display = 'none';
+        clearTimeout(escapeTimeout);
 
-        // B. Calculate random coordinates for the 50x50px face
+        star.style.display = 'none';
+        textOverlay.style.display = 'none';
+
         const faceX = Math.floor(Math.random() * (window.innerWidth - 50));
         const faceY = Math.floor(Math.random() * (window.innerHeight - 50));
         
         face.style.left = `${faceX}px`;
         face.style.top = `${faceY}px`;
-
-        // C. Make the face pop up suddenly
         face.style.display = 'flex';
 
-        // 3. THE 2-SECOND DELAY AND RESET
+        // 3. THE 2-SECOND RESET
         setTimeout(() => {
-            // Face disappears
             face.style.display = 'none';
 
-            // Teleport the square back to the dead center of the screen while invisible
-            box.style.transition = 'none';
-            box.style.left = 'calc(50vw - 25vmin)';
-            box.style.top = 'calc(50vh - 25vmin)';
-            box.style.transform = 'rotate(-1deg)';
+            star.style.transition = 'none';
+            star.style.width = '50vmin';
+            star.style.height = '50vmin';
+            star.style.left = 'calc(50vw - 25vmin)';
+            star.style.top = 'calc(50vh - 25vmin)';
+            star.style.transform = 'rotate(0deg)';
             
-            // Square reappears
-            box.style.display = 'block';
+            star.style.display = 'block';
+            textOverlay.style.display = 'block';
 
-            // Brief delay to let the teleport finish before allowing movement again
             setTimeout(() => {
-                box.style.transition = 'all 0.3s ease-out';
-                isResetting = false; // Game starts again!
+                star.classList.add('pulsing');
+                
+                // Flight tracking hyper-accelerated to 0.12s
+                star.style.transition = 'left 0.12s cubic-bezier(0.25, 1, 0.5, 1), top 0.12s cubic-bezier(0.25, 1, 0.5, 1), transform 0.1s ease';
+                
+                isResetting = false;
             }, 50);
 
-        }, 2000); // 2000ms = 2 seconds
+        }, 2000);
     });
 </script>
 </body>
