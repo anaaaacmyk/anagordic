@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>anxiety</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>anxiety</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="experiment">
-
-<div class="header">
-  <div class="menu">
-    <a href="index.html" class="home-link">Home</a>
+  <div class="header">
+    <div class="menu">
+      <a href="index.html" class="home-link">Home</a>
+    </div>
   </div>
-</div>
-
-<div class="gif-container">
+  <div class="gif-container">
     <img src="gif1.gif" alt="gif1" class="gif1" id="gif">
-</div>
-
-<script>
-const gif = document.getElementById("gif");
-
-gif.addEventListener("click", () => {
-    gif.classList.toggle("fullscreen");
-});
-</script>
-
+  </div>
+  
+  <script>
+    const gif = document.getElementById("gif");
+    gif.addEventListener("click", () => {
+      gif.classList.toggle("fullscreen");
+    });
+  </script>
 </body>
 </html>
-
