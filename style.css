@@ -191,10 +191,34 @@ body.experiment {
 }
 
 .gif1 {
-    width: 220px;   /* change size here */
+    width: 250px;
     height: auto;
-    object-fit: contain;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    position: relative;
+    z-index: 5;
 }
+
+.gif1.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain; 
+    z-index: 9999;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 body.experiment2 {
     margin: 0;
