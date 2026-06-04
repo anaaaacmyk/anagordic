@@ -1,28 +1,13 @@
-/* Fixed Home Button - Top Right Corner */
-.home-button {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-.home-button:hover {
-  background-color: #333;
-  transform: scale(1.05);
-}
-
 .header {
   position: fixed;
   top: 0;
   right: 0;
   padding: 30px;
+}
+
+.home-link {
+  position: relative;
+  z-index: 9999;
 }
 
 .index body, html {
@@ -106,14 +91,7 @@ font-family: Verdana, Geneva, sans-serif;
 .about-layer:target {
   display: block;
 }
-.close {
-  position: absolute;
-  top: 30px;
-  right: 40px;
-  font-size: 32px;
-  text-decoration: none;
-  color: black;
-}
+
 .links {
   list-style: none;
   padding: 0;
@@ -162,16 +140,6 @@ font-family: Verdana, Geneva, sans-serif;
     to {
         transform: scale(1.05) rotate(-2deg);
     }
-}
-
-
-.close {
-    position: absolute;
-    top: 30px;
-    right: 40px;
-    font-size: 40px;
-    text-decoration: none;
-    color: black;
 }
 
  .projekatskica body, html {
