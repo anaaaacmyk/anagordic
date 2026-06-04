@@ -184,10 +184,12 @@ body.experiment {
     gap: 60px;
 }
 
-.gif {
+.gif-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 .gif1 {
@@ -199,26 +201,19 @@ body.experiment {
     z-index: 5;
 }
 
+
 .gif1.fullscreen {
     position: fixed;
     top: 0;
     left: 0;
+
     width: 100vw;
     height: 100vh;
-    object-fit: contain; 
+
+    object-fit: contain;
+    mix-blend-mode: difference;
     z-index: 9999;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 body.experiment2 {
     margin: 0;
