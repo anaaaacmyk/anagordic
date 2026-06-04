@@ -211,7 +211,7 @@ body.experiment {
     height: 100vh;
 
     object-fit: contain;
-    mix-blend-mode: difference;
+	background: black;
     z-index: 9999;
 }
 
