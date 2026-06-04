@@ -220,18 +220,42 @@ body.experiment2 {
     height: 100vh;
     width: 100vw;
     background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
+    position: relative;
 }
+
 
 .hand-drawn-box {
     width: 50vmin;
     height: 50vmin;
-    border: 5px solid black;
-    background-color: transparent;
+    border: 8px solid black; /* Thick hand-drawn outline */
+    background-color: white; /* White fill */
     transform: rotate(-1deg);
     transition: all 0.3s ease-out; 
     cursor: crosshair; 
+    
+    /* Absolute positioning from the start so it can jump around */
+    position: absolute;
+    /* This centers it on initial page load */
+    left: calc(50vw - 25vmin);
+    top: calc(50vh - 25vmin);
+    box-sizing: border-box;
 }
-	
+
+.face {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: none; /* Hidden by default until the square is clicked */
+    justify-content: center;
+    align-items: center;
+    
+    /* Thick, hand-drawn style comic fonts */
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+    font-weight: 900; /* Extra bold/thick lines */
+    font-size: 36px; /* Sized perfectly to fit a 50px box */
+    color: black;
+    
+    white-space: nowrap;
+    user-select: none;
+}

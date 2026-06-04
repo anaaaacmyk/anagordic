@@ -1,91 +1,59 @@
 const box = document.querySelector('.hand-drawn-box');
-const faceHolder = document.querySelector('.hand-drawn-box .face');
-
-
+const face = document.querySelector('.face');
 let isResetting = false;
 
-// ----------------------------------------------------
-// PHASE 1: The Mouseover Dodging (Runs continuously)
-// ----------------------------------------------------
-box.addEventListener('mouseover', function runAway() {
-    // If the box is already caught and resetting, do nothing
+// 1. BEZI OD MISA (Square runs away)
+box.addEventListener('mouseover', () => {
     if (isResetting) return;
 
-    // Switch to absolute positioning if not already
-    if (box.style.position !== 'absolute') {
-        box.style.position = 'absolute';
-    }
+    // Calculate random coordinates ensuring it stays fully on screen
+    const randomX = Math.floor(Math.random() * (window.innerWidth - box.offsetWidth));
+    const randomY = Math.floor(Math.random() * (window.innerHeight - box.offsetHeight));
 
-    // Calculate random X and Y coordinates within the viewport.
-    // We subtract 150px (rough max size) to ensure it stays on screen.
-    const randomX = Math.floor(Math.random() * (window.innerWidth - 150));
-    const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
-
-    // Calculate a slight random rotation
-    const randomRot = (Math.random() * 20) - 10; // Between -10 and +10 degrees
-
-    // Apply the new position and rotation smoothly (via CSS transition)
     box.style.left = `${randomX}px`;
     box.style.top = `${randomY}px`;
-    box.style.transform = `rotate(${randomRot}deg)`;
+    
+    // Random wild rotations while playing
+    box.style.transform = `rotate(${Math.random() * 360}deg)`;
 });
 
-
-// ----------------------------------------------------
-// PHASE 2: The Click (Catching it)
-// ----------------------------------------------------
-box.addEventListener('click', function caughtSquare() {
-    // Prevent catching multiple times if they double click really fast
+// 2. KLIK (Square caught)
+box.addEventListener('click', () => {
     if (isResetting) return;
-
-    // Start the reset phase
     isResetting = true;
 
-    // 1. Instantly stop the box by removing the transition
-    box.style.transition = 'none';
+    // A. Square completely disappears instantly
+    box.style.display = 'none';
 
-    // 2. Add the angry face and the "caught" style class
-    faceHolder.innerText = '>:( ';
-    box.classList.add('caught');
-
-    // ------------------------------------------------
-    // PHASE 3: The 2-Second Delay and Reset
-    // ------------------------------------------------
+    // B. Calculate random coordinates for the 50x50px face
+    const faceX = Math.floor(Math.random() * (window.innerWidth - 50));
+    const faceY = Math.floor(Math.random() * (window.innerHeight - 50));
     
-    // Fade out after 1.5 seconds (leaving 0.5s for the reset animation to complete by 2s)
+    face.style.left = `${faceX}px`;
+    face.style.top = `${faceY}px`;
+
+    // C. Make the face pop up suddenly
+    face.style.display = 'flex';
+
+    // 3. THE 2-SECOND DELAY AND RESET
     setTimeout(() => {
-        box.style.opacity = '0';
-        box.style.transition = 'opacity 0.5s ease';
-    }, 1500);
+        // Face disappears
+        face.style.display = 'none';
 
-    // Full game reset at exactly 2 seconds
-    setTimeout(() => {
-        // A. Remove the "caught" state styles
-        box.classList.remove('caught');
-        faceHolder.innerText = '';
+        // Teleport the square back to the dead center of the screen while invisible
+        box.style.transition = 'none';
+        box.style.left = 'calc(50vw - 25vmin)';
+        box.style.top = 'calc(50vh - 25vmin)';
+        box.style.transform = 'rotate(-1deg)';
+        
+        // Square reappears
+        box.style.display = 'block';
 
-        // B. Re-show the box instantly
-        box.style.transition = 'none'; // Don't animate the reappear
-        box.style.opacity = '1';
-
-        // C. Restore base properties and re-enable base transitions
-        // We set transition back so next mouseover works smoothly.
-        // Important: Wait 50ms before restoring transition so the jump-reset doesn't animate.
+        // Brief delay to let the teleport finish before allowing movement again
         setTimeout(() => {
-             // Reset its base rotation and restore smooth transitions
-             box.style.transition = 'all 0.2s ease-out';
-             box.style.transform = `rotate(-1deg)`;
-             
-             // Optionally jump back to center or last playing spot. 
-             // We'll jump slightly off-center for a fresh play again spot.
-             const centerX = Math.floor(window.innerWidth / 2 - 100);
-             const centerY = Math.floor(window.innerHeight / 2 - 100);
-             box.style.left = `${centerX}px`;
-             box.style.top = `${centerY}px`;
-
-             // Game is playable again!
-             isResetting = false; 
+            box.style.transition = 'all 0.3s ease-out';
+            isResetting = false; // Game starts again!
         }, 50);
 
-    }, 2000); // The full delay
+    }, 2000); // 2000ms = 2 seconds
 });

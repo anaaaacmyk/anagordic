@@ -11,12 +11,23 @@
     <a href="index.html" class="home-link">Home</a>
   </div>
 </div>
-<div class="hand-drawn-box"></div>
+
+<div class="hand-drawn-box" style="display: flex; justify-content: center; align-items: center; font-family: monospace; font-weight: bold; font-size: 8vmin; color: #ff4d4d; select: none;">
+  <div class="face"></div>
+</div>
+
 <script>
     const box = document.querySelector('.hand-drawn-box');
+    const face = document.querySelector('.face');
+    
+    // Track if the box is currently caught and resetting
+    let isResetting = false;
 
     // BEZI OD MISA
     box.addEventListener('mouseover', () => {
+        // If caught, stop running away
+        if (isResetting) return;
+
         // Calculate random X and Y coordinates within the viewport
         const randomX = Math.floor(Math.random() * (window.innerWidth - 150));
         const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
@@ -30,14 +41,45 @@
         box.style.transform = `rotate(${Math.random() * 360}deg)`;
     });
 
-    // KRUZIC
+    // 
     box.addEventListener('click', () => {
-        box.style.width = '20px';
-        box.style.height = '20px';
-        box.style.borderRadius = '50%';
-        box.style.backgroundColor = 'black';
-        // Remove the mouseover event so it stops running away once caught
-        box.outerHTML = box.outerHTML; 
+        if (isResetting) return;
+        isResetting = true;
+
+        // 1. ANGRY FACE 
+        face.innerText = '>:( ';
+        box.style.borderColor = '#ff4d4d';
+        box.style.backgroundColor = 'rgba(255, 77, 77, 0.1)';
+        box.style.cursor = 'default';
+
+        // 2. NESTANI
+        setTimeout(() => {
+            box.style.transition = 'opacity 0.5s ease';
+            box.style.opacity = '0';
+        }, 1500);
+
+        // 3. RESETUJ POSLE 2 SEK
+        setTimeout(() => {
+            // Ocisti lice i vrati stare boje (Clear face and original styles)
+            face.innerText = '';
+            box.style.borderColor = 'black';
+            box.style.backgroundColor = 'transparent';
+            box.style.cursor = 'crosshair';
+            
+            // CENTRIRA KVADRAT
+            box.style.transition = 'none'; // Instant jump without animation
+            box.style.left = `${window.innerWidth / 2 - 100}px`;
+            box.style.top = `${window.innerHeight / 2 - 100}px`;
+            box.style.transform = `rotate(-1deg)`;
+            box.style.opacity = '1';
+
+            // 
+            setTimeout(() => {
+                box.style.transition = 'all 0.3s ease-out';
+                isResetting = false; // Igra moze opet da pocne!
+            }, 50);
+
+        }, 2000);
     });
 </script>
 </body>
