@@ -1,3 +1,23 @@
+/* Fixed Home Button - Top Right Corner */
+.home-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #333;
+  transform: scale(1.05);
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -98,10 +118,6 @@ font-family: Verdana, Geneva, sans-serif;
   list-style: none;
   padding: 0;
   margin-top: 60px;
-}
-
-.links li {
-  margin-bottom: 20px;
 }
 
 .links a {
