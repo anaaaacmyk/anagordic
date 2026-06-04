@@ -230,13 +230,8 @@ body.experiment2 {
     height: 50vmin;
     border: 5px solid black;
     background-color: transparent;
-	transform: rotate(-1deg) skewX(0deg) skewY(0deg);
-    transition: all 0.3s ease;
+    transform: rotate(-1deg);
+    transition: all 0.3s ease-out; 
+    cursor: crosshair; 
 }
 	
-.hand-drawn-box:hover {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;  
-    transform: rotate(0deg) skewX(0deg) skewY(0deg); 
-}

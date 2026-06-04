@@ -12,5 +12,33 @@
   </div>
 </div>
 <div class="hand-drawn-box"></div>
+<script>
+    const box = document.querySelector('.hand-drawn-box');
+
+    // BEZI OD MISA
+    box.addEventListener('mouseover', () => {
+        // Calculate random X and Y coordinates within the viewport
+        const randomX = Math.floor(Math.random() * (window.innerWidth - 150));
+        const randomY = Math.floor(Math.random() * (window.innerHeight - 150));
+
+        // PLIVA PO EKRANU
+        box.style.position = 'absolute';
+        box.style.left = `${randomX}px`;
+        box.style.top = `${randomY}px`;
+        
+        // ROTACIJAAAA
+        box.style.transform = `rotate(${Math.random() * 360}deg)`;
+    });
+
+    // KRUZIC
+    box.addEventListener('click', () => {
+        box.style.width = '20px';
+        box.style.height = '20px';
+        box.style.borderRadius = '50%';
+        box.style.backgroundColor = 'black';
+        // Remove the mouseover event so it stops running away once caught
+        box.outerHTML = box.outerHTML; 
+    });
+</script>
 </body>
 </html>
