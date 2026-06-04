@@ -224,7 +224,7 @@ body.experiment2 {
     position: relative;
 }
 
-
+/* THE SQUARE */
 .hand-drawn-box {
     width: 50vmin;
     height: 50vmin;
@@ -242,6 +242,7 @@ body.experiment2 {
     box-sizing: border-box;
 }
 
+/* THE SEPARATE ANGRY FACE */
 .face {
     position: absolute;
     width: 50px;
@@ -254,7 +255,7 @@ body.experiment2 {
     font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
     font-weight: 900; /* Extra bold/thick lines */
     font-size: 36px; /* Sized perfectly to fit a 50px box */
-    color: black;
+    color: black; /* Strictly black */
     
     white-space: nowrap;
     user-select: none;
