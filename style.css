@@ -1,0 +1,302 @@
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 30px;
+}
+
+.home-link {
+  position: relative;
+  z-index: 9999;
+}
+
+.index body, html {
+background-color:white;
+font-family: Verdana, Geneva, sans-serif;
+}
+
+.menu a {
+  font-family:Verdana, Geneva, sans-serif;
+  margin-left: 30px;
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.title-img {
+  position: fixed;  
+  top: 25%;
+  left: 50%;
+   width: 400px;  
+   height:200px;
+  background-image: url('anaaa.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+ 
+
+.plutajuca-glava {
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background-image: url('glava1.png');
+   background-size: contain;
+  background-repeat: no-repeat;
+  animation: floatAround 15s linear infinite;
+  pointer-events: auto;
+  transition: background-image 0.1s ease;
+}
+
+.plutajuca-glava:hover {
+  background-image: url('glava2.png');
+}
+
+@keyframes floatAround {
+  0% {
+    transform: translate(0vw, 0vh);
+  }
+
+  25% {
+    transform: translate(40vw, -10vh);
+  }
+
+  50% {
+    transform: translate(60vw, 30vh);
+  }
+
+  75% {
+    transform: translate(30vw, -20vh);
+  }
+
+  100% {
+    transform: translate(0vw, 0vh);
+  }
+}
+
+.about-layer {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: none;
+  z-index: 20;
+
+  padding: 80px;
+}
+
+.about-layer:target {
+  display: block;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin-top: 60px;
+}
+
+.links a {
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: none;
+    z-index: 20;
+}
+
+.overlay:target {
+    display: block;
+}
+
+.Projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+	height: 100%;
+}
+
+.Projects-container img {
+    width: 100px;
+    cursor: pointer;
+  animation: breathe 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes breathe {
+    from {
+        transform: scale(0.8) rotate(3deg);
+    }
+    to {
+        transform: scale(1.05) rotate(-2deg);
+    }
+}
+
+ .projekatskica body, html {
+	 margin: 0;
+	 padding: 0;
+	 height: 100%;
+	 width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.skica {
+    width: 300px; 
+    height: auto;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    object-fit:contain;
+}
+
+body.experiment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #FFFFFF;
+    margin: 0;
+}
+
+.face {
+    display: flex;
+    gap: 60px;
+}
+
+.gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.gif1 {
+    width: 250px;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+    z-index: 5;
+}
+
+
+.gif1.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    object-fit: contain;
+	background: black;
+    z-index: 9999;
+}
+
+body.experiment2 {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+/* FULL SCREEN INTERACTION TEXT */
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none; 
+}
+
+.text-overlay svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* THE HOLLOW PASTEL STAR */
+.hand-drawn-star {
+    width: 50vmin;
+    height: 50vmin;
+    background-color: transparent; 
+    
+    /* Hyper-accelerated track speeds (0.12s flight, 0.1s spin) */
+    transition: left 0.12s cubic-bezier(0.25, 1, 0.5, 1), 
+                top 0.12s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.1s ease; 
+    
+    cursor: pointer; 
+    position: absolute;
+    left: calc(50vw - 25vmin);
+    top: calc(50vh - 25vmin);
+    box-sizing: border-box;
+    z-index: 2; 
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.hand-drawn-star svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* ORGANIC ATTENTION WIGGLE */
+@keyframes smoothStartWiggle {
+    0% { transform: scale(1) rotate(0deg); }
+    20% { transform: scale(1.05) rotate(-3deg); }
+    40% { transform: scale(0.97) rotate(2deg); }
+    60% { transform: scale(1.06) rotate(-2deg); }
+    80% { transform: scale(0.99) rotate(1deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.pulsing {
+    animation: smoothStartWiggle 1.3s infinite ease-in-out;
+}
+
+/* THE ANGRY FACE */
+.face {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+    font-weight: 900; 
+    font-size: 36px; 
+    color: black;
+    
+    white-space: nowrap;
+    user-select: none;
+}
