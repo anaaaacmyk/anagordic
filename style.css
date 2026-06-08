@@ -4,9 +4,10 @@
   left: 0;
   right: 0;
   z-index: 30;
-  background: white;
+  background: transparent;
   padding: 20px 80px;
 }
+
 
 .menu {
   display: flex;
@@ -254,7 +255,6 @@ body.experiment2 {
   height: 100%;
 }
 
-/* INTERACTIVE STAR */
 .hand-drawn-star {
   width: 50vmin;
   height: 50vmin;
@@ -263,7 +263,7 @@ body.experiment2 {
               top 0.12s cubic-bezier(0.25, 1, 0.5, 1), 
               transform 0.1s ease; 
   cursor: pointer; 
-  position: absolute;
+  position: fixed;
   left: calc(50vw - 25vmin);
   top: calc(50vh - 25vmin);
   box-sizing: border-box;
@@ -271,6 +271,7 @@ body.experiment2 {
   touch-action: none;
   -webkit-user-select: none;
   user-select: none;
+  min-top: 80px;
 }
 
 .hand-drawn-star svg {
