@@ -1,9 +1,16 @@
-/* HEADER & NAVIGATION */
 .header {
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
-  padding: 30px;
+  z-index: 30;
+  background: white;
+  padding: 20px 80px;
+}
+
+.menu {
+  display: flex;
+  gap: 40px;
 }
 
 .home-link {
@@ -24,7 +31,7 @@ body.index {
   font-size: 16px;
 }
 
-/* MAIN IMAGE */
+
 .title-img {
   position: fixed;  
   top: 25%;
@@ -39,7 +46,7 @@ body.index {
   z-index: 2;
 }
 
-/* FLOATING HEAD */
+
 .plutajuca-glava {
   position: fixed;
   top: 20%;
@@ -76,7 +83,7 @@ body.index {
   }
 }
 
-/* ABOUT SECTION */
+
 .about-layer {
   position: fixed;
   inset: 0;
@@ -84,11 +91,13 @@ body.index {
   display: none;
   z-index: 20;
   padding: 80px;
+  padding-top: 140px; 
+  overflow-y: auto;
 }
-
 .about-layer:target {
   display: block;
 }
+
 
 .links {
   list-style: none;
@@ -102,7 +111,6 @@ body.index {
   color: black;
 }
 
-/* PROJECTS OVERLAY */
 .overlay {
   position: fixed;
   top: 0;
@@ -112,6 +120,7 @@ body.index {
   background: white;
   display: none;
   z-index: 20;
+  padding-top: 100px; 
 }
 
 .overlay:target {
