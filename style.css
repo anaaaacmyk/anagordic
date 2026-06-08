@@ -12,8 +12,8 @@
 .menu {
   display: flex;
   gap: 40px;
+  justify-content: flex-end;
 }
-
 .home-link {
   position: relative;
   z-index: 9999;
