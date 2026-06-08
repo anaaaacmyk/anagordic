@@ -149,6 +149,12 @@ body.index {
     transform: scale(1.05) rotate(-2deg);
   }
 }
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body.projekatskica {
   margin: 0;
   padding: 0;
@@ -167,13 +173,13 @@ body.projekatskica {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .skica {
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 95vw;
+  max-height: 95vh;
   width: auto;
   height: auto;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
@@ -188,9 +194,6 @@ body.experiment2 {
   background-color: white;
   overflow: hidden;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .face {
