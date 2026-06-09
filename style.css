@@ -187,8 +187,8 @@ body.projekatskica {
 .skica {
   max-width: 95vw;
   max-height: 95vh;
-  width: 150;
-  height: 150;
+  width: 250;
+  height: 250;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   object-fit: contain;
 }
@@ -196,8 +196,8 @@ body.projekatskica {
 body.experiment2 {
   margin: 0;
   padding: 0;
-  height: 150vh;
-  width: 150vw;
+  height: 100vh;
+  width: 100vw;
   background-color: white;
   overflow: hidden;
   position: relative;
