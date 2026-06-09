@@ -6,6 +6,8 @@
   z-index: 30;
   background: transparent;
   padding: 20px 80px;
+  display: flex;
+  align-items: center;
 }
 
 
