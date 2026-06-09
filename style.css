@@ -136,13 +136,13 @@ body.index {
 }
 
 .projects-container img {
-  width: 100px;
+  width: 150px;
   cursor: pointer;
   animation: breathe 2.5s ease-in-out infinite alternate;
 }
 
 .projects-container svg.star-icon {
-  width: 100px;
+  width: 150px;
   height: 100px;
   cursor: pointer;
   animation: breathe 2.5s ease-in-out infinite alternate;
@@ -187,8 +187,8 @@ body.projekatskica {
 .skica {
   max-width: 95vw;
   max-height: 95vh;
-  width: auto;
-  height: auto;
+  width: 150;
+  height: 150;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
   object-fit: contain;
 }
@@ -196,8 +196,8 @@ body.projekatskica {
 body.experiment2 {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
+  height: 150vh;
+  width: 150vw;
   background-color: white;
   overflow: hidden;
   position: relative;
@@ -212,8 +212,8 @@ body.experiment2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 150vw;
+  height: 150vh;
 }
 
 .gif1 {
