@@ -50,7 +50,6 @@ body.index {
   z-index: 2;
 }
 
-
 .plutajuca-glava {
   position: fixed;
   top: 20%;
@@ -64,11 +63,9 @@ body.index {
   pointer-events: auto;
   transition: background-image 0.1s ease;
 }
-
 .plutajuca-glava:hover {
   background-image: url('glava2.png');
 }
-
 @keyframes floatAround {
   0% {
     transform: translate(0vw, 0vh);
@@ -86,7 +83,6 @@ body.index {
     transform: translate(0vw, 0vh);
   }
 }
-
 
 .about-layer {
   position: fixed;
