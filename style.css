@@ -145,6 +145,13 @@ body.index {
   animation: breathe 2.5s ease-in-out infinite alternate;
 }
 
+.projects-container svg.star-icon {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  animation: breathe 2.5s ease-in-out infinite alternate;
+}
+
 @keyframes breathe {
   from {
     transform: scale(0.8) rotate(3deg);
