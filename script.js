@@ -1,3 +1,22 @@
+const gif1 = document.getElementById("gif1");
+const gif2 = document.getElementById("gif2");
+const gifOverlay = document.getElementById("gifOverlay");
+const overlayImg = document.getElementById("overlayImg");
+
+gif1.addEventListener("click", () => {
+  overlayImg.src = "gif1.gif";
+  gifOverlay.classList.add("active");
+});
+
+gif2.addEventListener("click", () => {
+  overlayImg.src = "gif2.gif";
+  gifOverlay.classList.add("active");
+});
+
+gifOverlay.addEventListener("click", () => {
+  gifOverlay.classList.remove("active");
+});
+
 const box = document.querySelector('.hand-drawn-box');
 const face = document.querySelector('.face');
 let isResetting = false;
