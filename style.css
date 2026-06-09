@@ -217,13 +217,27 @@ body.experiment2 {
   gap: 60px;
 }
 
-.gif-container {
+
+.gif-container-1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 60px;
-  width: 100vw;
+}
+
+.gif-container-2 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .gif1 {
@@ -231,7 +245,15 @@ body.experiment2 {
   height: auto;
   cursor: pointer;
   position: relative;
-  z-index: 25;
+  z-index: 35;
+}
+
+.gif2 {
+  width: 250px;
+  height: auto;
+  cursor: pointer;
+  position: relative;
+  z-index: 35;
 }
 
 .gif1.fullscreen {
@@ -244,6 +266,19 @@ body.experiment2 {
   background: black;
   z-index: 9999;
 }
+
+.gif2.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+  background: black;
+  z-index: 9999;
+}
+
+
 
 /* TEXT OVERLAY */
 .text-overlay {
